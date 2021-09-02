@@ -1,0 +1,51 @@
+Query con GROUP BY
+
+1-
+SELECT COUNT(*) AS `studenti_iscritti`, YEAR(`enrolment_date`) AS `anno_iscrizione`
+FROM `students`
+GROUP BY `anno_iscrizione`;
+
+2-
+SELECT COUNT(*) , `office_address`
+FROM `teachers` 
+GROUP BY `office_address`;
+
+3-
+SELECT AVG(vote) ,`exam_id` 
+FROM `exam_student` 
+GROUP BY `exam_id`;
+
+4-
+SELECT COUNT(*) AS `num_corsi`, `department_id` 
+FROM `degrees` 
+GROUP BY `department_id`;
+
+
+
+Query con JOIN
+
+1-
+SELECT * 
+FROM `degrees` 
+INNERR JOIN `students` 
+ON `degree_id` = 1;
+
+[non trovo l'id di economia]
+
+2-
+SELECT * 
+FROM `departments`
+INNER JOIN `degrees`
+ON `department_id` = 7
+
+3-
+SELECT `courses`.`name` 
+FROM `courses`
+JOIN `course_teacher` ON `courses`.`id`= `course_teacher`.`course_id`
+JOIN `teachers`ON `teachers`.`id`= `course_teacher`.`teacher_id`
+WHERE `teachers`.`id`= 44;
+
+
+
+
+
